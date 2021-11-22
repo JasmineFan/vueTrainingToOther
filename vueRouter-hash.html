@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hash test</title>
+</head>
+
+<body>
+  <p>this is a test for hash router</p>
+  <button id="button1">修改 hash</button>
+  <script>
+    //监听hash 变化
+    window.onhashchange = (event) => {
+      console.log('old url', event.oldURL)
+      console.log('new url', event.newURL)
+      console.log('hash', location.hash)
+    }
+    //页面初次加载完以后，得到hash
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('hash', location.hash)
+    })
+    //点击按钮，修改hash
+    document.getElementById('button1').addEventListener('click', () => {
+      location.hash = "#/test"  
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> H5 history test</title>
+</head>
+
+<body>
+  <p>this is a test for H5 history test</p>
+  <button id="button1">修改 url</button>
+  <script>
+    //页面第一次加载，得到 path
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('load', location.pathname)
+    })
+    //打开一个新的路由，pushState 浏览器不刷新页面
+    document.getElementById('button1').addEventListener('click', () => {
+      const state = {name:'test'}
+      console.log("change path to test")
+      history.pushState(state,'','test')
+    })
+
+    // 监听浏览器前进后退
+    window.onpopstate = (event) => {
+      console.log('onpopstate', event.state,location.pathname)
+    }
+  </script>
+</body>
+
+</html>
